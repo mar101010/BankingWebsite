@@ -8,32 +8,27 @@ public class BankCalculatorCarLeasingSection {
 
     //click on arrow icon expand Car leasing calculator tab
     public void clickOnCarLeasingSectToExpand() {
-        final String carLeasingSectExpand = ".groups01.clear div .heading";
-        $(carLeasingSectExpand).click();
+        $(".groups01.clear div .heading").click();
     }
 
     //enter price for vehicle
-    public void enter9000VehicleSum() {
-        final String vehicleSumTxtboxId = "#calc08-sum";
-        $(vehicleSumTxtboxId).setValue("9000");
+    public void enterVehicleSum(String vehicleSum) {
+        $("#calc08-sum").setValue(vehicleSum);
     }
 
     //enter downpayment for vehicle
-    public void enterDownpaymentSum() {
-        final String downpaymentSumTxtboxId = "#calc08-deposit";
-        $(downpaymentSumTxtboxId).setValue("50");
+    public void enterDownpaymentSum(String downpaymentSum) {
+        $("#calc08-deposit").setValue(downpaymentSum);
     }
 
     //click on arrow icon expand Car leasing calculator tab
     public void clickOnAddToComparatBtn() {
-        final String addToComparBtn = "#calc08 div.calc-form div div div.col2 ul li.link span span";
-        $(addToComparBtn).click();
+        $("#calc08 div.calc-form div div div.col2 ul li.link span span").click();
     }
 
     // get vehicle price from Comparisons table - text
     public String getVehiclePriceFromCompTableTxt() {
-        final String vehiclePriceFromCompTablElement = "#calc08 table td";
-        return $(vehiclePriceFromCompTablElement,2).getText();
+        return $("#calc08 table td",2).getText();
     }
 
 }

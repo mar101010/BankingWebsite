@@ -31,8 +31,8 @@ public class BankCalculatorTests {
     public void anonymousUserCanStartMaxLeaseApplication(){
         //given
         String fillInLeaseApplicationMsgTxtExpected = "If you are already a client of SEB, please submit the application in the internetbank. If you are not a client of SEB, please submit the application on the website of SEB.";
-        bankCalcMaxLeaseSect.enterIncome2000MaxLease();
-        bankCalcMaxLeaseSect.enterLiability500MaxLease();
+        bankCalcMaxLeaseSect.enterIncomeMaxLease("2000");
+        bankCalcMaxLeaseSect.enterLiabilityMaxLease("500");
         //when
         bankCalcMaxLeaseSect.clickOnFillInLeaseApplicationBtn();
         String fillInLeaseApplicationMsgTxtActual = bankCalcMaxLeaseSect.getTextOfFillInLeaseApplicationMsg();
@@ -51,8 +51,8 @@ public class BankCalculatorTests {
         // given
         bankCalcCarLeasingSect.clickOnCarLeasingSectToExpand();
         switchTo().frame("calculator-frame-08a");
-        bankCalcCarLeasingSect.enter9000VehicleSum();
-        bankCalcCarLeasingSect.enterDownpaymentSum();
+        bankCalcCarLeasingSect.enterVehicleSum("9000");
+        bankCalcCarLeasingSect.enterDownpaymentSum("50");
         //when
         bankCalcCarLeasingSect.clickOnAddToComparatBtn();
         String vehiclePriceFromCompTableTxtActual = bankCalcCarLeasingSect.getVehiclePriceFromCompTableTxt();
@@ -67,9 +67,9 @@ public class BankCalculatorTests {
         //given
         String leasingNotAllowedExpected = "We cannot provide financing with the entered data. Add a surety, if possible.";
         //when
-        bankCalcMaxLeaseSect.enterIncome700Minimum();
+        bankCalcMaxLeaseSect.enterIncomeMaxLease("700");
         String allowMessageForIncome700actual = bankCalcMaxLeaseSect.getMaxLeaseNegativeResultTxtMsg();
-        bankCalcMaxLeaseSect.enterIncome699LessThanMinimum();
+        bankCalcMaxLeaseSect.enterIncomeMaxLease("699");
         String allowMessageForIncome699actual = bankCalcMaxLeaseSect.getMaxLeaseNegativeResultTxtMsg();
         //then
         softAssert.assertEquals(allowMessageForIncome699actual, leasingNotAllowedExpected);
