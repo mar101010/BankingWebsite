@@ -3,8 +3,6 @@ package org.test.BankCalculator;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static java.sql.DriverManager.getDriver;
 
 public class BankCalculatorPage {
 
@@ -16,9 +14,12 @@ public class BankCalculatorPage {
     }
 
     // open web browser
-    public BankCalculatorPage open() {
+    public void open() {
         Selenide.open("/");
-        return this;
+    }
+
+    public void close(){
+        Selenide.close();
     }
 
     public void agreePolicy(){

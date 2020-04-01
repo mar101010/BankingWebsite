@@ -1,12 +1,6 @@
 package org.test.BankCalculator;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class BankCalculatorMaxLeaseSection {
 
@@ -56,8 +50,6 @@ public class BankCalculatorMaxLeaseSection {
     public void clickOnSubmitOnWebsiteBtn() {
         String submitOnWebsiteLink = "https://e.seb.ee/ip/ipank.p?act=CRMCONTACT&topic_code=t_lseauto&pt=unknown";
         $("#TB_content_container .actions01 .f-left:nth-child(2) a").click();
-       // #TB_content_container > div > ul > li:nth-child(2) > a
-       // #TB_content_container > div > ul
     }
 
     // get the text of submission page title

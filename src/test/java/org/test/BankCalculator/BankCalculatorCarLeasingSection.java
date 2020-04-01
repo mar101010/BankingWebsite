@@ -3,7 +3,6 @@ package org.test.BankCalculator;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class BankCalculatorCarLeasingSection {
 
@@ -36,22 +35,6 @@ public class BankCalculatorCarLeasingSection {
         final String vehiclePriceFromCompTablElement = "#calc08 table td";
         return $(vehiclePriceFromCompTablElement,2).getText();
     }
-
-    // get vehicle price from Comparisons table - element
-    public SelenideElement getVehiclePriceFromCompTable() {
-        final String vehiclePriceFromCompTablElement = "#calc08 table td";
-        return $(vehiclePriceFromCompTablElement,2);
-    }
-
-    //click on arrow icon expand Car leasing calculator tab
-    public void clickOnDeleteFromComparatBtn() {
-        final String deleteFromComparBtn = "#calc08 div.calc-result-compare table tbody tr td.actions.left a.delete-row";
-        $(deleteFromComparBtn).click();
-    }
-
-
- //   #calc08 > div.calc-result-compare > table > tbody > tr > td:nth-child(3)
-
 
 }
 

@@ -1,11 +1,11 @@
 package org.test.BankCalculator;
 
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.Selenide;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 
 public class BankCalculatorTests {
@@ -14,12 +14,17 @@ public class BankCalculatorTests {
     private BankCalculatorMaxLeaseSection bankCalcMaxLeaseSect = new BankCalculatorMaxLeaseSection();
     private BankCalculatorCarLeasingSection bankCalcCarLeasingSect = new BankCalculatorCarLeasingSection();
     private SoftAssert softAssert = new SoftAssert();
-
+    Selenide driver;
 
     @BeforeTest
-    public void chromeBrowserOpen(){
+    public void chromeBrowserOpenAndAgree(){
         bankCalculatorPage.open();
         bankCalculatorPage.agreePolicy();
+    }
+
+    @AfterTest
+    public void chromeBrowserClose(){
+        bankCalculatorPage.close();
     }
 
     @Test
@@ -51,13 +56,10 @@ public class BankCalculatorTests {
         //when
         bankCalcCarLeasingSect.clickOnAddToComparatBtn();
         String vehiclePriceFromCompTableTxtActual = bankCalcCarLeasingSect.getVehiclePriceFromCompTableTxt();
-        //bankCalcCarLeasingSect.clickOnDeleteFromComparatBtn();
-        //SelenideElement vehiclePriceFromCompTableAfterDeletionElemActual = bankCalcCarLeasingSect.getVehiclePriceFromCompTable();
-
         //then
         softAssert.assertEquals(vehiclePriceFromCompTableTxtActual, "9 000,00");
-        //softAssert.assertNull(vehiclePriceFromCompTableAfterDeletionElemActual);
         softAssert.assertAll();
+        driver.switchTo().defaultContent();
     }
 
     @Test
