@@ -17,7 +17,6 @@ public class BankCalculatorTests {
         bankCalcPage.agreeToPolicy();
     }
 
-
     @AfterMethod
     public void tearDown() {
         bankCalcPage.closeWebDriver();
