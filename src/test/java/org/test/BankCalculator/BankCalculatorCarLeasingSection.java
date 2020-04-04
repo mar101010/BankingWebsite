@@ -1,14 +1,18 @@
 package org.test.BankCalculator;
 
-import com.codeborne.selenide.SelenideElement;
-
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
 
 public class BankCalculatorCarLeasingSection {
 
     //click on arrow icon expand Car leasing calculator tab
     public void clickOnCarLeasingSectToExpand() {
         $(".groups01.clear div .heading").click();
+    }
+
+    //switch to iframe
+    public void switchToCarLeasingCalcIframe(){
+        switchTo().frame("calculator-frame-08a");
     }
 
     //enter price for vehicle
@@ -21,9 +25,9 @@ public class BankCalculatorCarLeasingSection {
         $("#calc08-deposit").setValue(downpaymentSum);
     }
 
-    //click on arrow icon expand Car leasing calculator tab
-    public void clickOnAddToComparatBtn() {
-        $("#calc08 div.calc-form div div div.col2 ul li.link span span").click();
+    //click on Add to comparations button
+    public void clickOnAddToCompBtn() {
+        $("#calc08 input.calc08-action-compare").click();
     }
 
     // get vehicle price from Comparisons table - text

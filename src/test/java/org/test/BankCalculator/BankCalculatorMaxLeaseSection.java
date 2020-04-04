@@ -4,6 +4,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class BankCalculatorMaxLeaseSection {
 
+    String MaxLeaseNegativeResultTxtMsgId = "#resultWrapperTextThree .negativeResult";
+    
     // enter Monthly net income for Maximum lease calculation
     public void enterIncomeMaxLease(String income) {
         $("#netoIncome").setValue(income);
@@ -14,12 +16,15 @@ public class BankCalculatorMaxLeaseSection {
         $("#monthlyFinancialObligations").setValue(liability);
     }
 
-    // get the text of Maximum Lease calculation's negative result??
+    // get the text of Maximum Lease calculation's negative result
     public String getMaxLeaseNegativeResultTxtMsg() {
-        return $("#resultWrapperTextThree .negativeResult").getText();
+        return $(MaxLeaseNegativeResultTxtMsgId).getText();
     }
 
-    // fill in a lease application
+    // make sure the text of Maximum Lease calculation's negative result text is visible
+    public boolean isMaxLeaseNegativeResultTxtMsgVisible(){ return $(MaxLeaseNegativeResultTxtMsgId).isDisplayed();}
+
+    // click on Fill in a lease application button
     public void clickOnFillInLeaseApplicationBtn() {
         $( "#resultWrapperNumber div.buttons-container a").click();
     }

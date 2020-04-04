@@ -2,11 +2,13 @@ package org.test.BankCalculator;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class BankCalculatorPage {
 
     //web browser setup
+
     public BankCalculatorPage() {
         System.setProperty("webdriver.chrome.driver", "src/test/java/resources/chromedriver.exe");
         System.setProperty("selenide.browser", "Chrome");
@@ -18,11 +20,11 @@ public class BankCalculatorPage {
         Selenide.open("/");
     }
 
-    public void close(){
-        Selenide.close();
+    public void closeWebDriver(){
+        Selenide.closeWebDriver();
     }
 
-    public void agreePolicy(){
+    public void agreeToPolicy(){
         $(".main.accept-selected").click();
     }
 
