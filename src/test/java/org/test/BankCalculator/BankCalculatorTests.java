@@ -11,19 +11,30 @@ public class BankCalculatorTests {
     public BankCalculatorCarLeasingSection bankCalcCarLeasingSect = new BankCalculatorCarLeasingSection();
     public SoftAssert softAssert = new SoftAssert();
 
-    @BeforeMethod
-    public void setUp() {
+    @BeforeClass
+    public void openPage() {
         bankCalcPage.open();
         bankCalcPage.agreeToPolicy();
-    }
+}
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         bankCalcPage.closeWebDriver();
     }
 
+//    @BeforeMethod
+    public void setUp() {
+  //      bankCalcPage.open();
+   //     bankCalcPage.agreeToPolicy();
+    }
+
+    @AfterMethod
+    public void refresh() {
+        bankCalcPage.refreshBrowser();
+    }
+
     @Test
-    public void userCanOpenGoogleSearchResult() {
+    public void userCanSubmitApplicationForLease() {
         //given
         bankCalcMaxLeaseSect.enterIncomeMaxLease("2000");
         bankCalcMaxLeaseSect.enterLiabilityMaxLease("500");
@@ -34,7 +45,7 @@ public class BankCalculatorTests {
         bankCalcMaxLeaseSect.clickOnSubmitOnWebsiteBtn();
         switchTo().window(1);
         String submitPageTitleTxtActual = bankCalcMaxLeaseSect.getTextOfSubmitPageHeader();
-        String submitPageTitleTxtExpected = "Car leasing";
+        String submitPageTitleTxtExpected = "Sõidukiliising";
         //then
         softAssert.assertEquals(fillInLeaseApplicationMsgTxtActual, fillInLeaseApplicationMsgTxtExpected);
         softAssert.assertEquals(submitPageTitleTxtActual, submitPageTitleTxtExpected);

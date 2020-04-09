@@ -1,10 +1,13 @@
 package org.test.BankCalculator;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class BankCalculatorMaxLeaseSection {
 
-    String s = "#resultWrapperTextThree .negativeResult";
+    private SelenideElement maxLeaseNegativeResultTxtMsgId = $("#resultWrapperTextThree .negativeResult");
     
     // enter Monthly net income for Maximum lease calculation
     public void enterIncomeMaxLease(String income) {
@@ -18,11 +21,11 @@ public class BankCalculatorMaxLeaseSection {
 
     // get the text of Maximum Lease calculation's negative result
     public String getMaxLeaseNegativeResultTxtMsg() {
-        return $(s).getText();
+        return maxLeaseNegativeResultTxtMsgId.getText();
     }
 
     // make sure the text of Maximum Lease calculation's negative result text is visible
-    public boolean isMaxLeaseNegativeResultTxtMsgVisible(){ return $(s).isDisplayed();}
+    public boolean isMaxLeaseNegativeResultTxtMsgVisible(){ return maxLeaseNegativeResultTxtMsgId.isDisplayed();}
 
     // click on Fill in a lease application button
     public void clickOnFillInLeaseApplicationBtn() {

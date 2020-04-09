@@ -23,6 +23,9 @@ public class BankCalculatorPage {
     public void closeWebDriver(){
         Selenide.closeWebDriver();
     }
+    public void refreshBrowser(){
+        Selenide.refresh();
+    }
 
     public void agreeToPolicy(){
         $(".main.accept-selected").click();
