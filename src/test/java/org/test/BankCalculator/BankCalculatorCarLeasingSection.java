@@ -27,7 +27,7 @@ public class BankCalculatorCarLeasingSection {
 
     //click on Add to comparations button
     public void clickOnAddToCompBtn() {
-        $("#calc08 input.calc08-action-compare").click();
+        $("#calc08 input.calc08-action-compare", 0).click();
     }
 
     // get vehicle price from Comparisons table - text

@@ -64,6 +64,7 @@ public class BankCalculatorTests {
         String vehiclePriceFromCompTableTxtActual = bankCalcCarLeasingSect.getVehiclePriceFromCompTableTxt();
         //then
         softAssert.assertEquals(vehiclePriceFromCompTableTxtActual, "9 000,00");
+        System.out.println("actual is " + vehiclePriceFromCompTableTxtActual + ", expected is 9 000,00");
         softAssert.assertAll();
     }
 
@@ -80,7 +81,8 @@ public class BankCalculatorTests {
         //then
         softAssert.assertEquals(maxLeaseNegativeResultTxtMsgActual, maxLeaseNegativeResultTxtMsgExpected);
         softAssert.assertFalse(maxLeaseNegativeResultTxtMsgFor700);
-        softAssert.assertTrue(maxLeaseNegativeResultTxtMsgFor699);
+        softAssert.assertFalse(!maxLeaseNegativeResultTxtMsgFor699);
+        System.out.println("max lease neg res exp = "+maxLeaseNegativeResultTxtMsgExpected+", max lease neg res act = "+maxLeaseNegativeResultTxtMsgActual);
         softAssert.assertAll();
     }
 
